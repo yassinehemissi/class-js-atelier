@@ -1,0 +1,54 @@
+{% extends "../layout.twig" %}
+
+{% block content %}
+		<div class='p-8'>
+			<div class="  relative overflow-x-auto">
+				<h1 class='text-2xl'>List Contact</h1>
+
+				<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+					<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+						<tr>
+							<th scope="col" class="px-6 py-3">
+								Full Name
+							</th>
+							<th scope="col" class="px-6 py-3">
+								Phone
+							</th>
+							<th scope="col" class="px-6 py-3">
+								Details
+							</th>
+							</
+						</tr>
+					</thead>
+					<tbody>
+						{% for contact in data %}
+							<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+								<td class="px-6 py-4">
+									{{ contact.fullName }}
+								</td>
+								<td class="px-6 py-4">
+									{{ contact.phone }}
+								</td>
+								<td><a href="{{'/contact/' ~  contact.id}}">Click Me</a></td>
+							</tr>
+						{% endfor %}
+
+
+					</tbody>
+				</table>
+			</div>
+			<form method='POST' class="mt-5">
+				<h1 class='text-2xl'>Add Contact</h1>
+				<div class="mb-5">
+					<label for="fullName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Full Name</label>
+					<input type="text" name='fullName' id="fullName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name" required/>
+				</div>
+				<div class="mb-5">
+					<label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contact Number</label>
+					<input type="phone" name='phone' id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
+				</div>
+
+				<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+			</form>
+		</div>
+{% endblock content %}
