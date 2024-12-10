@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="chat.css">
+	</head>
+	<body>
+
+		<div id='client_name'>
+			<input type="text" id="name" placeholder="Name">
+			<button onclick="setClientName()" id="set-name">Set Name</button>
+		</div>
+		<div class="container" id="messages"></div>
+		<div style='width:400px'>
+			<input style='width: 100%;' type="text" id="message" placeholder="Message">
+			<button style='width: 100%;' onclick="sendMessage()" id="send">Send</button>
+		</div>
+		<script defer src="chatScript.js"></script>
+	</body>
+
+</html>
