@@ -1,0 +1,17 @@
+<h1>Product
+	{{product.id}}</h1>
+<ul>
+	<li>
+		Name: {{ product.name }}
+	</li>
+	<li>
+		Price: {{ product.price }}
+	</li>
+	<li>
+		Material: {{ product.material }}
+	</li>
+
+	<li>
+		<a href="{{'/products/update/' ~ product.id}}">Update</a>
+	</li>
+</ul>

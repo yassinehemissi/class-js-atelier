@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<script src="https://cdn.socket.io/4.8.1/socket.io.min.js" integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+" crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+		<h1>List Products</h1>
+
+		<div>
+			<label>Name
+			</label>
+			<input id='nameForm'/>
+			<input onclick='onSubmitForm()' type='submit' value='Search By Name'/>
+		</div>
+		<br/>
+
+		<table style='border:1px solid black;'>
+			<thead>
+				<tr>
+					<th scope="col">
+						Name
+					</th>
+					<th scope="col">
+						Price
+					</th>
+					<th scope="col">
+						Material
+					</th>
+					<th scope="col">
+						Update
+					</th>
+
+				</tr>
+			</thead>
+
+		</thead>
+		<tbody>
+			{% for product in products %}
+				<tr>
+					<td>
+						{{ product.name }}
+					</td>
+					<td>
+						{{ product.price }}
+					</td>
+					<td>
+						{{ product.material }}
+					</td>
+
+					<td>
+						<a href="{{'/products/update/' ~ product.id}}">Click Me</a>
+					</td>
+				</tr>
+			{% endfor %}
+
+
+		</tbody>
+	</body>
+</html></table><h2 id='avgPrice'>Average Price:
+{{averagePrice}}</h2><h2>Products Above Average Price</h2><table style='border:1px solid black;'>
+<thead>
+	<tr>
+		<th scope="col">
+			Name
+		</th>
+		<th scope="col">
+			Price
+		</th>
+		<th scope="col">
+			Material
+		</th>
+		<th scope="col">
+			Update
+		</th>
+
+	</tr>
+</thead></thead><tbody>
+{% for product in productsAboveAverage %}
+	<tr>
+		<td>
+			{{ product.name }}
+		</td>
+		<td>
+			{{ product.price }}
+		</td>
+		<td>
+			{{ product.material }}
+		</td>
+
+		<td>
+			<a href="{{'/products/update/' ~ product.id}}">Click Me</a>
+		</td>
+	</tr>
+{% endfor %}</tbody></table><script>const onSubmitForm = () => {
+
+const name = document.getElementById('nameForm').value
+console.log(name)
+window.location = 'http://localhost:3000/products/one/' + name
+}
+
+
+const avgPrice = document.querySelector('#avgPrice')
+const socket = io()
+socket.on('update', ({average}) => {
+avgPrice.innerHTML = `Average Price: ${average}`
+})</script></body></html>

@@ -1,0 +1,15 @@
+<h1>Create Product</h1>
+
+
+<form method='POST' action='/products/create'>
+	{% if errorMessage  %}
+		<span style='color:red;'>{{errorMessage}}</span><br/>
+	{% endif %}
+	<label for='name'>Name:</label>
+	<input id='name' name='name'/><br/>
+	<label for='price'>Price:</label>
+	<input type='number' id='price' name='price'/><br/>
+	<label for='material'>Material:</label>
+	<input type='text' id='material' name='material'/><br/>
+	<input type='submit' value='Create'/>
+</from>

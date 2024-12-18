@@ -1,0 +1,15 @@
+<h1>Update Product</h1>
+
+
+<form method='POST' action='/products/update'>
+	<input name='id' id='id'  value={{product.id}} type='hidden'/>
+	<label for='name'>Name:</label>
+	<input id='name' name='name' value='{{product.name}}'/><br/>
+	<label for='price'>Price:</label>
+	<input type='number' id='price' name='price' value='{{product.price}}'/><br/>
+	<label for='material'>Material:</label>
+	<input type='text' id='material' name='material' value='{{product.material}}'/><br/>
+	<input type='submit' value='Update' />
+</from>
+
+<a href='{{'/products/delete/' ~ product.id}}' >Delete</a> 
